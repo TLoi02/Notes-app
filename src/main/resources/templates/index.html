@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Notes</title>
+    <link th:fragment="link-css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link th:fragment="link-css" rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <section class="vh-100" style="background-color: #eee;">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col col-lg-9 col-xl-7">
+                    <div class="card rounded-3">
+                        <div class="card-body p-4">
+
+                            <div class="account">
+                                <div class="account__info">
+                                    <span>Hello</span>
+                                    <h6 th:text = "${nameUser}"></h6>
+                                    <span>!</span>
+                                </div>
+                                <div class="account__btn">
+                                    <a class="btn btn-danger" href="/account/logout">Logout</a>
+                                </div>
+                            </div>
+                            <h4 class="text-center my-3 pb-3">Notes App</h4>
+
+                            <form th:action="@{/create}" method="post" class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2">
+                                <div class="col-12">
+                                    <div class="form-outline">
+                                        <input name="note" type="text" id="form1" class="form-control" placeholder="Enter note here" required/>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary">Save</button>
+                                </div>
+                            </form>
+
+                            <div class="table__wrap">
+                                <table class="table mb-4">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">No.</th>
+                                        <th scope="col">Todo item</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each="note:${listNote}">
+                                        <th scope="row" th:text = "${note.id}"></th>
+                                        <td th:text = "${note.content}"></td>
+                                        <td th:text = "${note.Type.name}"></td>
+                                        <td>
+                                            <a type="submit" class="btn btn-danger" th:href="@{/delete/{id}(id=${note.id})}" onclick="return confirm('Do you want Delete?')">Delete</a>
+                                            <a th:if="${note.Type.name != 'Complete'}" type="submit" class="btn btn-success ms-1" th:href="@{/finish/{id}(id=${note.id})}">Finished</a>
+                                            <a th:if="${note.Type.name == 'Complete'}" type="submit" class="btn btn-warning" th:href="@{/unfinish/{id}(id=${note.id})}">Unfinished</a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

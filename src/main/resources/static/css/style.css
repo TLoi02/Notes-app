@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.table__wrap{
+    width: 100%;
+    height: 210px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+.account{
+    display: flex;
+    align-items: center;
+}
+.account__info{
+    display: flex;
+    align-items: center;
+}
+.account__info h6{
+    margin: 1px 5px 0 5px;
+}
+.account__btn{
+    margin-left: 20px;
+}
+.login__btn{
+    padding: 10px 40px;
+    border-radius: 20px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
