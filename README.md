@@ -8,7 +8,7 @@ Notes App use Oauth2 to handel login with social and use Java Spring Boot to cod
 ## Demo
 [Watch demo](https://drive.google.com/file/d/1G-BIavDyBjVgKo34p3WT2xQX3XG-cCCx/view?usp=sharing)
 ## My other projects
-- [Book Shop](https://github.com/TLoi02/BookStore-Java).
+- [LTech Book](https://github.com/TLoi02/LTech-Book).
 - [Donut Shop Backend](https://github.com/TLoi02/DonutShop_Backend).
 - [Donut Shop Frontend](https://github.com/TLoi02/Donutshop_Frontend).
 - [Chat With AI](https://github.com/TLoi02/Chat-with-OpenAI).
